@@ -245,18 +245,15 @@ def long_name_steals_a_ton?
 end
 
 def winning_team
-  points = 0
-  name = 0
+  team_points = {}
   game_hash.each do |location, team_data|
+    total = 0
     team_data[:players].each do |player|
-      len = player[:player_name].length
-      if len > longest
-        longest = len
-        name = player[:player_name]
-      end
+      total += player[:points]
     end
+    team_points[team_data[:team_name]] = total
   end
-  name
+  winner = team_points.max_by{|k,v| v}
+  puts winner
+  team_points.max_by{|k,v| v}
 end
-
-long_name_steals_a_ton?
