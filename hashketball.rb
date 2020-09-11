@@ -203,6 +203,7 @@ def most_points_scored
       end
     end
   end
+  puts name
   name
 end
 
@@ -218,6 +219,7 @@ def player_with_longest_name
       end
     end
   end
+  puts
   name
 end
 
