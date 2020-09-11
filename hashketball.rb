@@ -253,7 +253,7 @@ def winning_team
     end
     team_points[team_data[:team_name]] = total
   end
-  winner = team_points.max_by{|k,v| v}
+  winner = team_points.key(team_points.values.max)
   puts winner
   team_points.key(team_points.values.max)
 end
