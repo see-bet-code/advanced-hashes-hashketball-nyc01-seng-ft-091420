@@ -219,7 +219,7 @@ def player_with_longest_name
       end
     end
   end
-  puts
+  puts name
   name
 end
 
