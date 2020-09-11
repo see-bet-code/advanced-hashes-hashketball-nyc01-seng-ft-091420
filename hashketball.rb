@@ -203,12 +203,49 @@ def most_points_scored
       end
     end
   end
-  puts name
   name
 end
 
 def player_with_longest_name
   longest = 0
+  name = ""
+  game_hash.each do |location, team_data|
+    team_data[:players].each do |player|
+      len = player[:player_name].length
+      if len > longest
+        longest = len
+        name = player[:player_name]
+      end
+    end
+  end
+  name
+end
+
+def long_name_steals_a_ton?
+  longest = 0
+  most_steals = 0
+  len_name = ""
+  steal_name = ""
+  game_hash.each do |location, team_data|
+    team_data[:players].each do |player|
+      len = player[:player_name].length
+      steals = player[:steals]
+      if len > longest
+        longest = len
+        len_name = player[:player_name]
+      end
+      if steals > most_steals
+        most_steals = steals
+        steal_name = player[:player_name]
+      end
+    end
+  end
+  puts len_name == steal_name
+  len_name == steal_name
+end
+
+def winning_team
+  points = 0
   name = 0
   game_hash.each do |location, team_data|
     team_data[:players].each do |player|
@@ -219,9 +256,7 @@ def player_with_longest_name
       end
     end
   end
-  puts name
   name
 end
 
-most_points_scored
-player_with_longest_name
+long_name_steals_a_ton?
