@@ -194,6 +194,19 @@ end
 
 def most_points_scored
   max = 0
+  game_hash.each do |location, team_data|
+    team_data[:players].each do |player|
+      if player[:points] > max
+        max = player[:points]
+        name = player[:player_name]
+      end
+    end
+  end
+  name
+end
+
+def player_with_longest_name
+  longest = 0
   rebounds = 0
   game_hash.each do |location, team_data|
     team_data[:players].each do |player|
