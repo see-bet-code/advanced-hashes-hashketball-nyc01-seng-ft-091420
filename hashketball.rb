@@ -255,7 +255,7 @@ def winning_team
   end
   winner = team_points.max_by{|k,v| v}
   puts winner
-  team_points.max_by{|k,v| v}
+  team_points.key(team_points.values.max)
 end
 
 winning_team
