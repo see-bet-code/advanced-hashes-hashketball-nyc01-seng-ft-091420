@@ -257,3 +257,5 @@ def winning_team
   puts winner
   team_points.max_by{|k,v| v}
 end
+
+winning_team
