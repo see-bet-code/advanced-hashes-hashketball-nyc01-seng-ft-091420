@@ -220,3 +220,6 @@ def player_with_longest_name
   end
   name
 end
+
+most_points_scored
+player_with_longest_name
